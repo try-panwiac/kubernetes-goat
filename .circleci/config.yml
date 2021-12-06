@@ -27,3 +27,4 @@ workflows:
   scan:
     jobs:
       - scan_image
+
