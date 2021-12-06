@@ -17,7 +17,7 @@ jobs:
   iac_scan:
     executor: bridgecrew/default
     environment:
-      PRISMA_API_URL: $prisma_cloud_compute_url
+      PRISMA_API_URL: https://api3.prismacloud.io
     steps:
       - checkout
       - bridgecrew/scan:
