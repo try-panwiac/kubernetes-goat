@@ -22,7 +22,7 @@ jobs:
       - checkout
       - pc_iac/scan:
           directory: .
-          api-key-variable: $prisma_cloud_access_key::$prisma_cloud_secret_key
+          api-key-variable: iac_api_key
 workflows:
   scan:
     jobs:
