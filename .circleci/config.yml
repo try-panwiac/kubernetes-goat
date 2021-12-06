@@ -14,7 +14,7 @@ jobs:
           prisma_cloud_compute_password: prisma_cloud_secret_key
           prisma_cloud_scan_image: nginx
           reports: csv,junit
-  build:
+  iac_scan:
     executor: pac_iac/default 
     environment:
       PRISMA_API_URL: $prisma_cloud_compute_url
@@ -27,4 +27,5 @@ workflows:
   scan:
     jobs:
       - scan_image
+      - iac_scan
 
