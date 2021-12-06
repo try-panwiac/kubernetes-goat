@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   pcs: prisma_cloud/devops_security@3.0.4
+  pc_iac: bridgecrew/bridgecrew@1.0.3
 jobs:
   scan_image:
     executor: pcs/compute
@@ -13,3 +14,12 @@ jobs:
           prisma_cloud_compute_password: $prisma_cloud_secret_key
           prisma_cloud_scan_image: nginx
           reports: csv,junit
+  build:
+    executor: bridgecrew/default 
+    environment:
+      PRISMA_API_URL: $prisma_cloud_compute_url
+    steps:
+      - checkout
+      - pc_iac/scan:
+          directory: .
+          api-key-variable: $prisma_cloud_access_key::$prisma_cloud_secret_key
