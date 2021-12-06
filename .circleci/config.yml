@@ -9,9 +9,9 @@ jobs:
       - checkout
       - run: 'docker pull nginx'
       - pcs/scan_image:
-          prisma_cloud_compute_url: $prisma_cloud_compute_url
-          prisma_cloud_compute_username: $prisma_cloud_access_key
-          prisma_cloud_compute_password: $prisma_cloud_secret_key
+          prisma_cloud_compute_url: prisma_cloud_compute_url
+          prisma_cloud_compute_username: prisma_cloud_access_key
+          prisma_cloud_compute_password: prisma_cloud_secret_key
           prisma_cloud_scan_image: nginx
           reports: csv,junit
   build:
@@ -22,7 +22,7 @@ jobs:
       - checkout
       - pc_iac/scan:
           directory: .
-          api-key-variable: "$prisma_cloud_access_key::$prisma_cloud_secret_key" 
+          api-key-variable: prisma_cloud_access_key::prisma_cloud_secret_key
 workflows:
   scan:
     jobs:
