@@ -11,7 +11,7 @@ jobs:
       - pcs/scan_image:
           prisma_cloud_compute_url: $prisma_cloud_compute_url
           prisma_cloud_compute_username: $prisma_cloud_access_key
-          prisma_cloud_compute_password: $prisma_cloud_secret_key
+          prisma_cloud_compute_password: prisma_cloud_secret_key
           prisma_cloud_scan_image: nginx
           reports: csv,junit
   build:
