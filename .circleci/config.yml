@@ -14,12 +14,12 @@ jobs:
           prisma_cloud_compute_password: $prisma_cloud_secret_key
           prisma_cloud_scan_image: nginx
           reports: csv,junit
-  build:
-    executor: bridgecrew/default 
+  iac_scan:
+    executor: pac_iac/default 
     environment:
       PRISMA_API_URL: $prisma_cloud_compute_url
     steps:
       - checkout
       - pc_iac/scan:
           directory: .
-          api-key-variable: $prisma_cloud_access_key::$prisma_cloud_secret_key
+          api-key-variable: "$prisma_cloud_access_key::$prisma_cloud_secret_key"
